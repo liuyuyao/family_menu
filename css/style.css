@@ -1,0 +1,86 @@
+/* Reset & Base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background: #FFF8F0; color: #333; font-size: 16px; }
+#app { display: flex; flex-direction: column; height: 100vh; max-width: 480px; margin: 0 auto; background: #FFF8F0; position: relative; }
+
+/* Header */
+.app-header { background: #FF8C42; color: white; padding: 12px 16px; text-align: center; position: sticky; top: 0; z-index: 10; }
+.app-header h1 { font-size: 1.2rem; font-weight: 600; }
+
+/* Main Content */
+#main-content { flex: 1; overflow-y: auto; padding: 12px 12px 80px 12px; -webkit-overflow-scrolling: touch; }
+.page { display: none; animation: fadeIn 0.2s ease; }
+.page.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Toolbar */
+.toolbar { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; align-items: center; }
+.toolbar input, .toolbar select { padding: 8px 10px; border: 1px solid #E0D5C7; border-radius: 8px; background: white; font-size: 0.9rem; flex: 1; min-width: 80px; }
+.toolbar .btn-primary { background: #FF8C42; color: white; border: none; padding: 10px 18px; border-radius: 8px; font-size: 0.95rem; font-weight: 500; cursor: pointer; }
+.toolbar .btn-small { background: #FFE8D6; color: #D4652A; border: 1px solid #FFD0A8; padding: 6px 12px; border-radius: 6px; font-size: 0.8rem; cursor: pointer; }
+.toggle { display: flex; align-items: center; gap: 4px; font-size: 0.85rem; color: #666; }
+
+/* Cards */
+.card { background: white; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.card-title { font-size: 1.05rem; font-weight: 600; color: #2D2D2D; }
+.card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+.tag { font-size: 0.7rem; padding: 2px 8px; border-radius: 12px; font-weight: 500; }
+.tag-big { background: #FFE4E1; color: #C0392B; }
+.tag-small { background: #FFF3CD; color: #B7791F; }
+.tag-veg { background: #D4EDDA; color: #155724; }
+.tag-soup { background: #D1ECF1; color: #0C5460; }
+.tag-seafood { background: #E0F2F1; color: #00695C; }
+.tag-staple { background: #E2E3E5; color: #383D41; }
+.card-meta { font-size: 0.8rem; color: #888; }
+.card-ingredients { font-size: 0.85rem; color: #555; margin-top: 6px; }
+.card-actions { display: flex; gap: 8px; margin-top: 10px; }
+.card-actions button { flex: 1; padding: 8px; border-radius: 6px; border: 1px solid #E0D5C7; background: #FFF8F0; font-size: 0.8rem; cursor: pointer; }
+
+/* Menu Group */
+.menu-group { background: white; border-radius: 14px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.menu-group-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.menu-group-title { font-size: 1.1rem; font-weight: 700; color: #FF8C42; }
+.menu-group-score { font-size: 0.8rem; color: #999; }
+.menu-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #F5F0EB; }
+.menu-item:last-child { border-bottom: none; }
+.menu-item-info { flex: 1; }
+.menu-item-name { font-weight: 500; font-size: 0.95rem; }
+.menu-item-ing { font-size: 0.75rem; color: #999; margin-top: 2px; }
+.menu-item-tag { font-size: 0.7rem; margin-left: 8px; }
+.menu-actions { display: flex; gap: 8px; margin-top: 12px; }
+.menu-actions .btn-primary { flex: 1; }
+.menu-actions .btn-secondary { background: #F0F0F0; color: #555; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.9rem; cursor: pointer; flex: 1; }
+
+/* Shopping List */
+.shopping-list { background: #FFF8F0; border-radius: 10px; padding: 12px; margin-top: 12px; }
+.shopping-list h4 { font-size: 0.9rem; margin-bottom: 8px; color: #666; }
+.shopping-list ul { list-style: none; font-size: 0.85rem; color: #555; }
+.shopping-list li { padding: 3px 0; }
+
+/* Inventory List */
+.inv-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 12px; background: white; border-radius: 8px; margin-bottom: 6px; }
+.inv-item button { background: #FFEBEE; color: #C62828; border: none; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; cursor: pointer; }
+
+/* Recipe List */
+.recipe-row { display: flex; justify-content: space-between; align-items: center; padding: 12px; background: white; border-radius: 10px; margin-bottom: 8px; }
+.recipe-row .info { flex: 1; }
+.recipe-row .name { font-weight: 500; }
+.recipe-row .sub { font-size: 0.75rem; color: #999; margin-top: 2px; }
+.recipe-row .pref { display: flex; gap: 2px; }
+.star { color: #FFB300; font-size: 1rem; cursor: pointer; }
+.star.empty { color: #DDD; }
+
+/* Bottom Nav */
+.bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; background: white; border-top: 1px solid #F0E6DA; display: flex; justify-content: space-around; padding: 6px 0 calc(6px + env(safe-area-inset-bottom)); z-index: 100; }
+.nav-btn { background: none; border: none; display: flex; flex-direction: column; align-items: center; gap: 2px; color: #999; font-size: 0.65rem; cursor: pointer; padding: 4px 12px; }
+.nav-btn .icon { font-size: 1.3rem; }
+.nav-btn.active { color: #FF8C42; }
+
+/* History */
+.history-date { font-size: 0.75rem; color: #999; margin-bottom: 4px; }
+.history-recipes { font-size: 0.9rem; margin-bottom: 12px; }
+
+/* Misc */
+.empty-state { text-align: center; padding: 40px 20px; color: #AAA; font-size: 0.9rem; }
+.score-debug { font-size: 0.75rem; color: #BBB; margin-top: 4px; }

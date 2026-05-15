@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#FF8C42">
+<title>Family Menu</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header class="app-header">
+    <h1>Family Menu</h1>
+  </header>
+
+  <main id="main-content">
+    <!-- 今日推荐 -->
+    <section id="page-recommend" class="page active">
+      <div class="toolbar">
+        <button id="btn-generate" class="btn-primary">生成今日菜单</button>
+        <label class="toggle"><input type="checkbox" id="baby-mode"> 宝宝模式</label>
+      </div>
+      <div id="recommend-result"></div>
+    </section>
+
+    <!-- 菜谱管理 -->
+    <section id="page-recipes" class="page">
+      <div class="toolbar">
+        <input type="text" id="recipe-search" placeholder="搜索菜名或食材...">
+        <select id="recipe-filter">
+          <option value="">全部分类</option>
+          <option value="big_meat">大荤</option>
+          <option value="seafood">海鲜</option>
+          <option value="small_meat">小荤</option>
+          <option value="vegetable">素菜</option>
+          <option value="soup">汤</option>
+          <option value="staple">主食</option>
+        </select>
+      </div>
+      <div class="toolbar">
+        <button id="btn-add-recipe" class="btn-small">新增菜谱</button>
+        <button id="btn-import-csv" class="btn-small">导入CSV</button>
+        <button id="btn-export-json" class="btn-small">导出备份</button>
+        <input type="file" id="file-csv" accept=".csv" style="display:none">
+        <input type="file" id="file-json" accept=".json" style="display:none">
+      </div>
+      <div id="recipe-editor" class="card" style="display:none;">
+        <h4 id="editor-title" style="font-size:1rem;color:#333;">新增菜谱</h4>
+        <input type="hidden" id="edit-old-name">
+        <div style="display:grid;gap:8px;margin-top:10px;">
+          <input id="edit-name" placeholder="菜名" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <select id="edit-category" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+            <option value="big_meat">大荤</option>
+            <option value="seafood">海鲜</option>
+            <option value="small_meat">小荤</option>
+            <option value="vegetable">素菜</option>
+            <option value="soup">汤</option>
+            <option value="staple">主食</option>
+          </select>
+          <input id="edit-main" placeholder="主要食材" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-pref" type="number" min="1" max="5" placeholder="喜爱度 1-5" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-time" type="number" placeholder="用时(分钟)" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <select id="edit-diff" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+            <option value="easy">简单</option>
+            <option value="medium">中等</option>
+          </select>
+          <input id="edit-ing1" placeholder="食材1" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-ing2" placeholder="食材2" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-ing3" placeholder="食材3" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-ing4" placeholder="食材4" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-ing5" placeholder="食材5" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+        </div>
+        <div class="card-actions" style="margin-top:12px;">
+          <button class="btn-primary" onclick="App.saveRecipe()">保存</button>
+          <button class="btn-secondary" onclick="App.closeEditor()">取消</button>
+        </div>
+      </div>
+      <div id="recipe-list"></div>
+    </section>
+
+    <!-- 历史菜单 -->
+    <section id="page-history" class="page">
+      <div id="history-list"></div>
+    </section>
+
+    <!-- 我的食材 -->
+    <section id="page-inventory" class="page">
+      <div class="toolbar">
+        <input type="text" id="inv-name" placeholder="食材名称">
+        <input type="text" id="inv-qty" placeholder="数量" style="width:60px">
+        <input type="text" id="inv-unit" placeholder="单位" style="width:50px">
+        <button id="btn-add-inv" class="btn-primary">添加</button>
+        <button id="btn-clear-inv" class="btn-small">清空</button>
+      </div>
+      <div id="inventory-list"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="nav-btn active" data-page="recommend">
+      <span class="icon">🍱</span><span class="label">推荐</span>
+    </button>
+    <button class="nav-btn" data-page="recipes">
+      <span class="icon">📖</span><span class="label">菜谱</span>
+    </button>
+    <button class="nav-btn" data-page="history">
+      <span class="icon">📅</span><span class="label">历史</span>
+    </button>
+    <button class="nav-btn" data-page="inventory">
+      <span class="icon">🥬</span><span class="label">食材</span>
+    </button>
+  </nav>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

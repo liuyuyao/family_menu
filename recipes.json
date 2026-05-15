@@ -1,0 +1,2089 @@
+[
+  {
+    "name": "羊肚菌酿肉",
+    "category": "big_meat",
+    "mainIngredient": "猪肉",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "brief": "羊肚菌泡发，肉馅调味塞入菌帽，蒸15分钟",
+    "ingredients": [
+      {
+        "name": "羊肚菌",
+        "amount": 10,
+        "unit": "朵"
+      },
+      {
+        "name": "猪肉末",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "糖醋排骨",
+    "category": "big_meat",
+    "mainIngredient": "猪肉",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 60,
+    "difficulty": "medium",
+    "brief": "排骨焯水，炒糖色后加调料炖煮40分钟至软烂收汁",
+    "ingredients": [
+      {
+        "name": "猪肋排",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "冰糖",
+        "amount": 30,
+        "unit": "g"
+      },
+      {
+        "name": "香醋",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "白芝麻",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "红烧肉加鸡蛋",
+    "category": "big_meat",
+    "mainIngredient": "猪肉",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 70,
+    "difficulty": "medium",
+    "brief": "五花肉煸炒出油，加调料炖煮，中途加入煮好的鸡蛋一起卤",
+    "ingredients": [
+      {
+        "name": "五花肉",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 6,
+        "unit": "个"
+      },
+      {
+        "name": "冰糖",
+        "amount": 20,
+        "unit": "g",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 4,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "八角",
+        "amount": 2,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "红烧鸡翅",
+    "category": "big_meat",
+    "mainIngredient": "鸡肉",
+    "preference": 5,
+    "babyPreference": 3,
+    "cookTime": 35,
+    "difficulty": "easy",
+    "brief": "鸡翅煎两面金黄，加调料和水焖煮20分钟收汁",
+    "ingredients": [
+      {
+        "name": "鸡翅中",
+        "amount": 12,
+        "unit": "个"
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "冰糖",
+        "amount": 15,
+        "unit": "g",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "八角",
+        "amount": 1,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "照烧鸡腿排",
+    "category": "big_meat",
+    "mainIngredient": "鸡肉",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 30,
+    "difficulty": "easy",
+    "brief": "鸡腿肉去骨煎熟，倒入照烧汁收汁切块",
+    "ingredients": [
+      {
+        "name": "鸡腿肉",
+        "amount": 3,
+        "unit": "块"
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "蜂蜜",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 2,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "白芝麻",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "香菇炖鸡",
+    "category": "big_meat",
+    "mainIngredient": "鸡肉",
+    "preference": 3,
+    "babyPreference": 2,
+    "cookTime": 80,
+    "difficulty": "medium",
+    "brief": "鸡肉焯水，和泡发香菇一起炖煮1小时",
+    "ingredients": [
+      {
+        "name": "土鸡",
+        "amount": 0.5,
+        "unit": "只"
+      },
+      {
+        "name": "干香菇",
+        "amount": 10,
+        "unit": "朵"
+      },
+      {
+        "name": "姜片",
+        "amount": 4,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "枸杞",
+        "amount": 10,
+        "unit": "粒",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "斑节虾",
+    "category": "big_meat",
+    "mainIngredient": "虾",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "虾洗净，白灼或清蒸5分钟，蘸酱油",
+    "ingredients": [
+      {
+        "name": "斑节虾",
+        "amount": 400,
+        "unit": "g"
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "葱段",
+        "amount": 2,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "清蒸鲈鱼",
+    "category": "big_meat",
+    "mainIngredient": "鱼",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "鱼划刀塞姜片，蒸8分钟，淋豉油和热油",
+    "ingredients": [
+      {
+        "name": "鲈鱼",
+        "amount": 1,
+        "unit": "条"
+      },
+      {
+        "name": "姜片",
+        "amount": 5,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "葱段",
+        "amount": 2,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "蒸鱼豉油",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "热油",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "家烧黄鱼",
+    "category": "big_meat",
+    "mainIngredient": "鱼",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "brief": "黄鱼两面煎黄，加调料和水焖煮15分钟",
+    "ingredients": [
+      {
+        "name": "大黄鱼",
+        "amount": 1,
+        "unit": "条"
+      },
+      {
+        "name": "姜片",
+        "amount": 4,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "葱段",
+        "amount": 2,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "糖",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "醋",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "照烧三文鱼",
+    "category": "big_meat",
+    "mainIngredient": "鱼",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "三文鱼煎至金黄，刷照烧汁略煎，挤柠檬汁",
+    "ingredients": [
+      {
+        "name": "三文鱼排",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "蜂蜜",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "柠檬",
+        "amount": 0.5,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "炒蛏子",
+    "category": "big_meat",
+    "mainIngredient": "贝壳",
+    "preference": 4,
+    "babyPreference": 1,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "蛏子吐沙洗净，爆炒3分钟至开口",
+    "ingredients": [
+      {
+        "name": "蛏子",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 3,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "葱段",
+        "amount": 2,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "干辣椒",
+        "amount": 2,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "烤羊排",
+    "category": "big_meat",
+    "mainIngredient": "羊肉",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 90,
+    "difficulty": "medium",
+    "brief": "羊排腌制1小时后烤箱200度烤30分钟",
+    "ingredients": [
+      {
+        "name": "羊排",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "孜然粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "辣椒粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.5,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "土豆",
+        "amount": 1,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "酱牛肉",
+    "category": "big_meat",
+    "mainIngredient": "牛肉",
+    "preference": 4,
+    "babyPreference": 3,
+    "cookTime": 120,
+    "difficulty": "medium",
+    "brief": "牛腱子焯水，加酱料炖煮1.5小时后浸泡入味（可提前做）",
+    "ingredients": [
+      {
+        "name": "牛腱子",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "生抽",
+        "amount": 3,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "黄豆酱",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "八角",
+        "amount": 2,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "桂皮",
+        "amount": 1,
+        "unit": "块",
+        "optional": true
+      },
+      {
+        "name": "香叶",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 4,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "土豆炖牛腩",
+    "category": "big_meat",
+    "mainIngredient": "牛肉",
+    "preference": 3,
+    "babyPreference": 2,
+    "cookTime": 100,
+    "difficulty": "medium",
+    "brief": "牛腩焯水后炖1小时，加土豆胡萝卜再炖20分钟",
+    "ingredients": [
+      {
+        "name": "牛腩",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "土豆",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.5,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "八角",
+        "amount": 1,
+        "unit": "个",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "番茄炖牛腩",
+    "category": "big_meat",
+    "mainIngredient": "牛肉",
+    "preference": 3,
+    "babyPreference": 2,
+    "cookTime": 100,
+    "difficulty": "medium",
+    "brief": "牛腩炖软后加番茄土豆炖20分钟至浓稠",
+    "ingredients": [
+      {
+        "name": "牛腩",
+        "amount": 500,
+        "unit": "g"
+      },
+      {
+        "name": "番茄",
+        "amount": 3,
+        "unit": "个"
+      },
+      {
+        "name": "土豆",
+        "amount": 1,
+        "unit": "个"
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.5,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "炒猪肝",
+    "category": "big_meat",
+    "mainIngredient": "内脏",
+    "preference": 4,
+    "babyPreference": 1,
+    "cookTime": 20,
+    "difficulty": "medium",
+    "brief": "猪肝切片泡血水，腌制后大火快炒1分钟",
+    "ingredients": [
+      {
+        "name": "猪肝",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "青椒",
+        "amount": 1,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.5,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 3,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "糖",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "南瓜蒸排骨",
+    "category": "big_meat",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 50,
+    "difficulty": "easy",
+    "brief": "排骨腌制后和南瓜块一起蒸40分钟至软烂",
+    "ingredients": [
+      {
+        "name": "猪肋排",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "南瓜",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "宝宝版清蒸鳕鱼",
+    "category": "big_meat",
+    "mainIngredient": "鱼",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "鳕鱼铺姜片蒸5分钟，淋少许豉油和热油",
+    "ingredients": [
+      {
+        "name": "鳕鱼块",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "姜片",
+        "amount": 4,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "葱段",
+        "amount": 1,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "蒸鱼豉油",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "热油",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "肉末烧豆腐",
+    "category": "small_meat",
+    "mainIngredient": "豆腐",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "肉末炒香，加豆瓣酱和豆腐炖煮5分钟，勾芡撒葱花",
+    "ingredients": [
+      {
+        "name": "嫩豆腐",
+        "amount": 1,
+        "unit": "块"
+      },
+      {
+        "name": "猪肉末",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "老抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "豆瓣酱",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 2,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "淀粉水",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "韭菜炒蛋",
+    "category": "small_meat",
+    "mainIngredient": "鸡蛋",
+    "preference": 3,
+    "babyPreference": 2,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "brief": "鸡蛋炒散盛出，韭菜快炒后倒回鸡蛋翻匀",
+    "ingredients": [
+      {
+        "name": "韭菜",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 4,
+        "unit": "个"
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "油",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "番茄炒蛋",
+    "category": "small_meat",
+    "mainIngredient": "鸡蛋",
+    "preference": 4,
+    "babyPreference": 4,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "brief": "鸡蛋炒散，番茄炒出汁后混合，加糖盐调味",
+    "ingredients": [
+      {
+        "name": "番茄",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 4,
+        "unit": "个"
+      },
+      {
+        "name": "糖",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "木须肉",
+    "category": "small_meat",
+    "mainIngredient": "猪肉",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "肉片滑炒，鸡蛋炒散，蔬菜焯水后混合翻炒",
+    "ingredients": [
+      {
+        "name": "猪肉片",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 0.5,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "黑木耳",
+        "amount": 10,
+        "unit": "朵",
+        "optional": true
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 0.5,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "虾仁蒸蛋",
+    "category": "small_meat",
+    "mainIngredient": "虾",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "蛋液加温水搅匀过滤，盖保鲜膜蒸8分钟，放虾仁再蒸3分钟",
+    "ingredients": [
+      {
+        "name": "鸡蛋",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "虾仁",
+        "amount": 6,
+        "unit": "只"
+      },
+      {
+        "name": "温水",
+        "amount": 150,
+        "unit": "ml"
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "宝宝肉饼蒸蛋",
+    "category": "small_meat",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 25,
+    "difficulty": "easy",
+    "brief": "肉末调味铺盘底，中间挖洞放鸡蛋，蒸15分钟",
+    "ingredients": [
+      {
+        "name": "猪肉末",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 1,
+        "unit": "个"
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 0.5,
+        "unit": "撮",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "胡萝卜土豆炖肉丸",
+    "category": "small_meat",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 45,
+    "difficulty": "easy",
+    "brief": "肉末做丸子，和胡萝卜土豆块一起炖30分钟至软烂",
+    "ingredients": [
+      {
+        "name": "猪肉末",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "土豆",
+        "amount": 1,
+        "unit": "个"
+      },
+      {
+        "name": "淀粉",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "番茄肉酱面",
+    "category": "small_meat",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 3,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "番茄炒出汁，加肉末炒熟，拌面或盖饭",
+    "ingredients": [
+      {
+        "name": "猪肉末",
+        "amount": 150,
+        "unit": "g"
+      },
+      {
+        "name": "番茄",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.25,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "番茄酱",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "面条",
+        "amount": 300,
+        "unit": "g",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "豆腐鱼肉丸",
+    "category": "small_meat",
+    "mainIngredient": "鱼",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 30,
+    "difficulty": "medium",
+    "brief": "鱼肉和豆腐打成泥，挤丸子煮熟或蒸熟",
+    "ingredients": [
+      {
+        "name": "鲈鱼肉",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "嫩豆腐",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "淀粉",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "姜末",
+        "amount": 0.5,
+        "unit": "撮",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "蔬菜蛋饺",
+    "category": "small_meat",
+    "mainIngredient": "鸡蛋",
+    "preference": 2,
+    "babyPreference": 3,
+    "cookTime": 40,
+    "difficulty": "medium",
+    "brief": "蛋皮摊好包入肉馅，蒸熟或煮汤",
+    "ingredients": [
+      {
+        "name": "鸡蛋",
+        "amount": 3,
+        "unit": "个"
+      },
+      {
+        "name": "猪肉末",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "白菜",
+        "amount": 2,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "宝宝版宫保鸡丁",
+    "category": "small_meat",
+    "mainIngredient": "鸡肉",
+    "preference": 2,
+    "babyPreference": 3,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "鸡丁滑炒，加蔬菜丁翻炒，勾薄芡（不辣）",
+    "ingredients": [
+      {
+        "name": "鸡胸肉",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "黄瓜",
+        "amount": 0.5,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 0.5,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "糖",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "醋",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "手撕包菜",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 3,
+    "babyPreference": 2,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "brief": "包菜手撕成片，大火爆炒2分钟，锅边淋醋",
+    "ingredients": [
+      {
+        "name": "包菜",
+        "amount": 0.5,
+        "unit": "颗"
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 3,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "干辣椒",
+        "amount": 2,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "醋",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "糖",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "芹菜香干",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 4,
+    "babyPreference": 2,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "brief": "芹菜香干切条，炒香干后加芹菜快炒",
+    "ingredients": [
+      {
+        "name": "芹菜",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "香干",
+        "amount": 3,
+        "unit": "块"
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 2,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "蒜蓉矮脚青",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 4,
+    "babyPreference": 3,
+    "cookTime": 5,
+    "difficulty": "easy",
+    "brief": "蒜爆香，大火快炒青菜2分钟",
+    "ingredients": [
+      {
+        "name": "矮脚青",
+        "amount": 400,
+        "unit": "g"
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 3,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "油",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "蒜蓉油麦菜",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 5,
+    "difficulty": "easy",
+    "brief": "蒜爆香，大火快炒油麦菜2分钟",
+    "ingredients": [
+      {
+        "name": "油麦菜",
+        "amount": 400,
+        "unit": "g"
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 3,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "油",
+        "amount": 2,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "西兰花炒胡萝卜",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 3,
+    "babyPreference": 4,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "西兰花焯水，和胡萝卜片一起快炒勾芡",
+    "ingredients": [
+      {
+        "name": "西兰花",
+        "amount": 1,
+        "unit": "颗"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 0.5,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "蒜瓣",
+        "amount": 2,
+        "unit": "瓣",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "淀粉水",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "蒸南瓜",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "南瓜切块蒸15分钟至软糯",
+    "ingredients": [
+      {
+        "name": "老南瓜",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "红枣",
+        "amount": 3,
+        "unit": "颗",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "土豆泥",
+    "category": "vegetable",
+    "mainIngredient": "蔬菜",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 25,
+    "difficulty": "easy",
+    "brief": "土豆蒸熟压泥，加热牛奶黄油拌匀",
+    "ingredients": [
+      {
+        "name": "土豆",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "牛奶",
+        "amount": 50,
+        "unit": "ml",
+        "optional": true
+      },
+      {
+        "name": "黄油",
+        "amount": 10,
+        "unit": "g",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "玉米排骨汤",
+    "category": "soup",
+    "mainIngredient": "猪肉",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 80,
+    "difficulty": "easy",
+    "brief": "排骨焯水，加玉米胡萝卜炖煮1小时",
+    "ingredients": [
+      {
+        "name": "猪肋排",
+        "amount": 400,
+        "unit": "g"
+      },
+      {
+        "name": "甜玉米",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "胡萝卜",
+        "amount": 1,
+        "unit": "根",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "萝卜牛肉汤",
+    "category": "soup",
+    "mainIngredient": "牛肉",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 80,
+    "difficulty": "easy",
+    "brief": "牛肉焯水，和萝卜块炖煮1小时至透明",
+    "ingredients": [
+      {
+        "name": "牛腩",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "白萝卜",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "姜片",
+        "amount": 3,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "料酒",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "香菜",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "番茄鸡蛋汤",
+    "category": "soup",
+    "mainIngredient": "鸡蛋",
+    "preference": 3,
+    "babyPreference": 4,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "番茄炒出汁加水煮开，淋入蛋液，调味撒葱花",
+    "ingredients": [
+      {
+        "name": "番茄",
+        "amount": 1,
+        "unit": "个"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "姜片",
+        "amount": 1,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "香油",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "紫菜鸡蛋汤",
+    "category": "soup",
+    "mainIngredient": "鸡蛋",
+    "preference": 3,
+    "babyPreference": 3,
+    "cookTime": 10,
+    "difficulty": "easy",
+    "brief": "水开下紫菜虾皮，淋入蛋液，调味即可",
+    "ingredients": [
+      {
+        "name": "紫菜",
+        "amount": 1,
+        "unit": "张"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "虾皮",
+        "amount": 1,
+        "unit": "把",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "香油",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "冬瓜肉丸汤",
+    "category": "soup",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 3,
+    "cookTime": 30,
+    "difficulty": "easy",
+    "brief": "肉末挤丸子入水，加冬瓜片煮10分钟",
+    "ingredients": [
+      {
+        "name": "猪肉末",
+        "amount": 200,
+        "unit": "g"
+      },
+      {
+        "name": "冬瓜",
+        "amount": 300,
+        "unit": "g"
+      },
+      {
+        "name": "姜片",
+        "amount": 2,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "淀粉",
+        "amount": 1,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "生抽",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "葱花",
+        "amount": 1,
+        "unit": "撮",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "丝瓜鸡蛋汤",
+    "category": "soup",
+    "mainIngredient": "鸡蛋",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 15,
+    "difficulty": "easy",
+    "brief": "丝瓜炒软加水煮开，淋蛋液，调味",
+    "ingredients": [
+      {
+        "name": "丝瓜",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "鸡蛋",
+        "amount": 2,
+        "unit": "个"
+      },
+      {
+        "name": "姜片",
+        "amount": 1,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      },
+      {
+        "name": "香油",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "玉米浓汤",
+    "category": "soup",
+    "mainIngredient": "蔬菜",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 20,
+    "difficulty": "easy",
+    "brief": "玉米粒打碎过滤，加牛奶煮稠",
+    "ingredients": [
+      {
+        "name": "甜玉米",
+        "amount": 1,
+        "unit": "根"
+      },
+      {
+        "name": "牛奶",
+        "amount": 200,
+        "unit": "ml",
+        "optional": true
+      },
+      {
+        "name": "洋葱",
+        "amount": 0.25,
+        "unit": "个",
+        "optional": true
+      },
+      {
+        "name": "黄油",
+        "amount": 10,
+        "unit": "g",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  },
+  {
+    "name": "青菜肉末粥",
+    "category": "soup",
+    "mainIngredient": "猪肉",
+    "preference": 2,
+    "babyPreference": 4,
+    "cookTime": 40,
+    "difficulty": "easy",
+    "brief": "粥煮稠后加肉末搅散，加青菜碎煮5分钟",
+    "ingredients": [
+      {
+        "name": "大米",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "猪肉末",
+        "amount": 100,
+        "unit": "g"
+      },
+      {
+        "name": "青菜",
+        "amount": 2,
+        "unit": "棵",
+        "optional": true
+      },
+      {
+        "name": "姜片",
+        "amount": 1,
+        "unit": "片",
+        "optional": true
+      },
+      {
+        "name": "盐",
+        "amount": 0.5,
+        "unit": "勺",
+        "optional": true
+      }
+    ]
+  }
+]
