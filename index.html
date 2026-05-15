@@ -95,9 +95,9 @@
         <h4 style="font-size:1rem;color:#333;margin-bottom:12px;">GitHub 同步</h4>
         <div style="display:grid;gap:10px;">
           <input id="gh-token" type="password" placeholder="GitHub Token" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
-          <input id="gh-repo" placeholder="仓库名，如 liuyuyao/family_menu" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
-          <input id="gh-branch" placeholder="分支名，如 main" value="main" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
-          <input id="gh-path" placeholder="CSV 路径，如 data/recipes.csv" value="data/recipes.csv" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-repo" placeholder="仓库名" value="liuyuyao/family_menu" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-branch" placeholder="分支名" value="main" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-path" placeholder="CSV 路径" value="data/recipes.csv" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
           <div style="display:flex;gap:8px;">
             <button class="btn-primary" onclick="App.saveGitHubSettings()" style="flex:1;">保存配置</button>
             <button class="btn-small" onclick="App.syncFromGitHub()" style="flex:1;">从仓库加载</button>
@@ -134,8 +134,8 @@
   </nav>
 </div>
 
-<script src="js/data.js?v=16"></script>
-<script src="js/engine.js?v=16"></script>
-<script src="js/app.js?v=16"></script>
+<script src="js/data.js?v=18"></script>
+<script src="js/engine.js?v=18"></script>
+<script src="js/app.js?v=18"></script>
 </body>
 </html>
