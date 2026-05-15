@@ -17,6 +17,11 @@
   <main id="main-content">
     <!-- 今日推荐 -->
     <section id="page-recommend" class="page active">
+      <div class="toolbar" style="margin-bottom:4px;">
+        <input type="text" id="quick-inv" placeholder="今天家里有：鸡蛋、番茄、土豆..." style="flex:1;">
+        <button id="btn-quick-add" class="btn-small">添加</button>
+      </div>
+      <div id="quick-inv-tags" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;padding-left:2px;"></div>
       <div class="toolbar">
         <button id="btn-generate" class="btn-primary">生成今日菜单</button>
         <label class="toggle"><input type="checkbox" id="baby-mode"> 宝宝模式</label>

@@ -9,6 +9,7 @@ const App = {
     this.renderRecipes();
     this.renderInventory();
     this.renderHistory();
+    this.renderQuickInv();
     this.generateRecommend();
   },
 
@@ -65,6 +66,10 @@ const App = {
   bindEvents() {
     // 生成菜单
     document.getElementById('btn-generate').addEventListener('click', () => this.generateRecommend());
+
+    // 快速添加库存食材
+    document.getElementById('btn-quick-add').addEventListener('click', () => this.quickAddInventory());
+    document.getElementById('quick-inv').addEventListener('keydown', (e) => { if (e.key === 'Enter') this.quickAddInventory(); });
 
     // 菜谱搜索与筛选
     document.getElementById('recipe-search').addEventListener('input', () => this.renderRecipes());
@@ -469,6 +474,41 @@ const App = {
     const filtered = recipes.filter(x => x.name !== name);
     DataStore.saveRecipes(filtered);
     this.renderRecipes();
+  },
+
+  quickAddInventory() {
+    const input = document.getElementById('quick-inv');
+    const text = input.value.trim();
+    if (!text) return;
+    const names = text.split(/[,，、\s]+/).filter(s => s);
+    const inv = DataStore.getInventory();
+    const today = Engine.todayStr();
+    names.forEach(name => {
+      if (!inv.some(i => i.name === name)) {
+        inv.push({ name, quantity: '', unit: '', addedDate: today });
+      }
+    });
+    DataStore.saveInventory(inv);
+    input.value = '';
+    this.renderQuickInv();
+  },
+
+  renderQuickInv() {
+    const inv = DataStore.getInventory();
+    const container = document.getElementById('quick-inv-tags');
+    if (!container) return;
+    container.innerHTML = inv.map((item, idx) =>
+      `<span style="background:#FFE8D6;color:#D4652A;padding:2px 8px;border-radius:10px;font-size:0.75rem;display:inline-flex;align-items:center;gap:4px;">
+        ${item.name}<button onclick="App.removeQuickInv(${idx})" style="background:none;border:none;color:#D4652A;cursor:pointer;padding:0;font-size:0.8rem;line-height:1;">×</button>
+      </span>`
+    ).join('');
+  },
+
+  removeQuickInv(idx) {
+    const inv = DataStore.getInventory();
+    inv.splice(idx, 1);
+    DataStore.saveInventory(inv);
+    this.renderQuickInv();
   },
 
   togglePicker(menuIdx, dishIdx) {
