@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#FF8C42">
-<title>Family Menu</title>
+<title>帆帆菜单</title>
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <div id="app">
   <header class="app-header">
-    <h1>Family Menu</h1>
+    <h1>帆帆菜单</h1>
   </header>
 
   <main id="main-content">
@@ -24,7 +24,6 @@
       <div id="quick-inv-tags" style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px;padding-left:2px;"></div>
       <div class="toolbar">
         <button id="btn-generate" class="btn-primary">生成今日菜单</button>
-        <label class="toggle"><input type="checkbox" id="baby-mode"> 宝宝模式</label>
       </div>
       <div id="recommend-result"></div>
     </section>
@@ -65,7 +64,8 @@
           </select>
           <input id="edit-main" placeholder="主要食材" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
           <input id="edit-pref" type="number" min="1" max="5" placeholder="喜爱度 1-5" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
-          <input id="edit-time" type="number" placeholder="用时(分钟)" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-time" type="number" placeholder="总用时(分钟)" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="edit-occupy" type="number" placeholder="占用时间(分钟)" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
           <select id="edit-diff" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
             <option value="easy">简单</option>
             <option value="medium">中等</option>
@@ -89,16 +89,32 @@
       <div id="history-list"></div>
     </section>
 
-    <!-- 我的食材 -->
-    <section id="page-inventory" class="page">
-      <div class="toolbar">
-        <input type="text" id="inv-name" placeholder="食材名称">
-        <input type="text" id="inv-qty" placeholder="数量" style="width:60px">
-        <input type="text" id="inv-unit" placeholder="单位" style="width:50px">
-        <button id="btn-add-inv" class="btn-primary">添加</button>
-        <button id="btn-clear-inv" class="btn-small">清空</button>
+    <!-- 设置 -->
+    <section id="page-settings" class="page">
+      <div class="card">
+        <h4 style="font-size:1rem;color:#333;margin-bottom:12px;">GitHub 同步</h4>
+        <div style="display:grid;gap:10px;">
+          <input id="gh-token" type="password" placeholder="GitHub Token" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-repo" placeholder="仓库名，如 liuyuyao/family_menu" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-branch" placeholder="分支名，如 main" value="main" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <input id="gh-path" placeholder="CSV 路径，如 data/recipes.csv" value="data/recipes.csv" style="padding:8px;border:1px solid #E0D5C7;border-radius:8px;">
+          <div style="display:flex;gap:8px;">
+            <button class="btn-primary" onclick="App.saveGitHubSettings()" style="flex:1;">保存配置</button>
+            <button class="btn-small" onclick="App.syncFromGitHub()" style="flex:1;">从仓库加载</button>
+            <button class="btn-small" onclick="App.syncToGitHub()" style="flex:1;">保存到仓库</button>
+          </div>
+          <div id="gh-status" style="font-size:0.8rem;color:#999;"></div>
+        </div>
       </div>
-      <div id="inventory-list"></div>
+      <div class="card" style="margin-top:12px;">
+        <h4 style="font-size:1rem;color:#333;margin-bottom:12px;">数据管理</h4>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn-small" onclick="App.exportJSON()">导出 JSON 备份</button>
+          <button class="btn-small" onclick="App.exportCSV()">导出 CSV</button>
+          <input type="file" id="file-json-import" accept=".json" style="display:none">
+          <button class="btn-small" onclick="document.getElementById('file-json-import').click()">导入 JSON 备份</button>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -112,14 +128,14 @@
     <button class="nav-btn" data-page="history">
       <span class="icon">📅</span><span class="label">历史</span>
     </button>
-    <button class="nav-btn" data-page="inventory">
-      <span class="icon">🥬</span><span class="label">食材</span>
+    <button class="nav-btn" data-page="settings">
+      <span class="icon">⚙️</span><span class="label">设置</span>
     </button>
   </nav>
 </div>
 
-<script src="js/data.js"></script>
-<script src="js/engine.js"></script>
-<script src="js/app.js"></script>
+<script src="js/data.js?v=16"></script>
+<script src="js/engine.js?v=16"></script>
+<script src="js/app.js?v=16"></script>
 </body>
 </html>

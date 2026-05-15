@@ -10,7 +10,8 @@ const DEFAULT_RECIPES = [
       "羊肚菌",
       "猪肉末"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 25
   },
   {
     "name": "糖醋排骨",
@@ -22,7 +23,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "猪肋排"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "红烧肉加鸡蛋",
@@ -35,7 +37,8 @@ const DEFAULT_RECIPES = [
       "五花肉",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "红烧鸡翅",
@@ -47,7 +50,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "鸡翅中"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "照烧鸡腿排",
@@ -59,7 +63,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "鸡腿肉"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "香菇炖鸡",
@@ -72,7 +77,8 @@ const DEFAULT_RECIPES = [
       "土鸡",
       "干香菇"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "清蒸虾",
@@ -84,7 +90,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "斑节虾"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 5
   },
   {
     "name": "清蒸鲈鱼",
@@ -96,7 +103,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "鲈鱼"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "家烧黄鱼",
@@ -108,7 +116,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "大黄鱼"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "照烧三文鱼",
@@ -121,7 +130,8 @@ const DEFAULT_RECIPES = [
       "三文鱼排",
       "柠檬"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "炒蛏子",
@@ -133,7 +143,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "蛏子"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "烤羊排",
@@ -147,7 +158,8 @@ const DEFAULT_RECIPES = [
       "洋葱",
       "土豆"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "酱牛肉",
@@ -159,7 +171,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "牛腱子"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 25
   },
   {
     "name": "土豆炖牛腩",
@@ -174,7 +187,8 @@ const DEFAULT_RECIPES = [
       "胡萝卜",
       "洋葱"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "番茄炖牛腩",
@@ -189,7 +203,8 @@ const DEFAULT_RECIPES = [
       "土豆",
       "洋葱"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "炒猪肝",
@@ -203,7 +218,8 @@ const DEFAULT_RECIPES = [
       "青椒",
       "洋葱"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "南瓜蒸排骨",
@@ -216,7 +232,8 @@ const DEFAULT_RECIPES = [
       "猪肋排",
       "南瓜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "宝宝版清蒸鳕鱼",
@@ -228,7 +245,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "鳕鱼块"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 5
   },
   {
     "name": "肉末烧豆腐",
@@ -241,7 +259,8 @@ const DEFAULT_RECIPES = [
       "嫩豆腐",
       "猪肉末"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "韭菜炒蛋",
@@ -254,7 +273,8 @@ const DEFAULT_RECIPES = [
       "韭菜",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "番茄炒蛋",
@@ -267,7 +287,8 @@ const DEFAULT_RECIPES = [
       "番茄",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "木须肉",
@@ -283,7 +304,8 @@ const DEFAULT_RECIPES = [
       "黑木耳",
       "胡萝卜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "虾仁蒸蛋",
@@ -296,7 +318,8 @@ const DEFAULT_RECIPES = [
       "鸡蛋",
       "虾仁"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "宝宝肉饼蒸蛋",
@@ -309,7 +332,8 @@ const DEFAULT_RECIPES = [
       "猪肉末",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "胡萝卜土豆炖肉丸",
@@ -323,7 +347,8 @@ const DEFAULT_RECIPES = [
       "胡萝卜",
       "土豆"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "番茄肉酱面",
@@ -338,7 +363,8 @@ const DEFAULT_RECIPES = [
       "洋葱",
       "面条"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "豆腐鱼肉丸",
@@ -351,7 +377,8 @@ const DEFAULT_RECIPES = [
       "鲈鱼肉",
       "嫩豆腐"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "蔬菜蛋饺",
@@ -365,7 +392,8 @@ const DEFAULT_RECIPES = [
       "猪肉末",
       "白菜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 30
   },
   {
     "name": "宝宝版宫保鸡丁",
@@ -379,7 +407,8 @@ const DEFAULT_RECIPES = [
       "黄瓜",
       "胡萝卜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "手撕包菜",
@@ -391,7 +420,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "包菜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "芹菜香干",
@@ -404,7 +434,8 @@ const DEFAULT_RECIPES = [
       "芹菜",
       "香干"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "蒜蓉时蔬",
@@ -416,7 +447,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "时蔬"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 5
   },
   {
     "name": "西兰花炒胡萝卜",
@@ -429,7 +461,8 @@ const DEFAULT_RECIPES = [
       "西兰花",
       "胡萝卜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "蒸南瓜",
@@ -441,7 +474,8 @@ const DEFAULT_RECIPES = [
     "ingredients": [
       "老南瓜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 5
   },
   {
     "name": "土豆泥",
@@ -454,7 +488,8 @@ const DEFAULT_RECIPES = [
       "土豆",
       "牛奶"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "玉米排骨汤",
@@ -468,7 +503,8 @@ const DEFAULT_RECIPES = [
       "甜玉米",
       "胡萝卜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "萝卜牛肉汤",
@@ -481,7 +517,8 @@ const DEFAULT_RECIPES = [
       "牛腩",
       "白萝卜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "番茄鸡蛋汤",
@@ -494,7 +531,8 @@ const DEFAULT_RECIPES = [
       "番茄",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "紫菜鸡蛋汤",
@@ -508,7 +546,8 @@ const DEFAULT_RECIPES = [
       "鸡蛋",
       "虾皮"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "冬瓜汆丸子",
@@ -521,7 +560,8 @@ const DEFAULT_RECIPES = [
       "猪肉末",
       "冬瓜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "丝瓜炒蛋",
@@ -534,7 +574,8 @@ const DEFAULT_RECIPES = [
       "丝瓜",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "玉米浓汤",
@@ -548,7 +589,8 @@ const DEFAULT_RECIPES = [
       "牛奶",
       "洋葱"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "青菜肉末粥",
@@ -562,7 +604,8 @@ const DEFAULT_RECIPES = [
       "猪肉末",
       "青菜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "肉末炒蘑菇",
@@ -575,7 +618,8 @@ const DEFAULT_RECIPES = [
       "猪肉末",
       "口蘑"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 15
   },
   {
     "name": "口蘑炒蛋",
@@ -588,7 +632,8 @@ const DEFAULT_RECIPES = [
       "口蘑",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "番茄肉末意面",
@@ -603,7 +648,8 @@ const DEFAULT_RECIPES = [
       "洋葱",
       "意面"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 20
   },
   {
     "name": "蛋炒饭",
@@ -616,7 +662,8 @@ const DEFAULT_RECIPES = [
       "米饭",
       "鸡蛋"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 10
   },
   {
     "name": "鲜肉馄饨",
@@ -630,7 +677,8 @@ const DEFAULT_RECIPES = [
       "馄饨皮",
       "白菜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 25
   },
   {
     "name": "饺子",
@@ -644,9 +692,12 @@ const DEFAULT_RECIPES = [
       "饺子皮",
       "白菜"
     ],
-    "lastEaten": null
+    "lastEaten": null,
+    "occupyTime": 25
   }
 ];
+
+
 
 const STORAGE_KEYS = {
   RECIPES: 'family_recipes',
@@ -679,7 +730,7 @@ const DataStore = {
   },
   getSettings() {
     const data = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-    return data ? JSON.parse(data) : { babyMode: false };
+    return data ? JSON.parse(data) : {};
   },
   saveSettings(s) {
     localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(s));
@@ -722,6 +773,7 @@ const DataStore = {
         mainIngredient: obj['主要食材'],
         preference: parseInt(obj['喜爱'] || 3),
         cookTime: parseInt(obj['用时(分钟)'] || 30),
+        occupyTime: parseInt(obj['占用时间(分钟)'] || obj['用时(分钟)'] || 30),
         difficulty: obj['难度'] || 'easy',
         ingredients: ings,
         lastEaten: null

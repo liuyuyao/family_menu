@@ -1,22 +1,38 @@
+<<<<<<< Updated upstream
 菜名,分类,主要食材,喜爱,用时(分钟),占用时间(分钟),难度,食材1,食材2,食材3,食材4,食材5
+=======
+﻿菜名,分类,主要食材,喜爱,用时(分钟),占用时间(分钟),难度,食材1,食材2,食材3,食材4,食材5
+>>>>>>> Stashed changes
 羊肚菌酿肉,big_meat,猪肉,4,40,25,medium,羊肚菌,猪肉末,,,
 糖醋排骨,big_meat,猪肉,4,60,20,medium,猪肋排,,,,
 红烧肉加鸡蛋,big_meat,猪肉,4,70,20,medium,五花肉,鸡蛋,,,
 红烧鸡翅,big_meat,鸡肉,5,35,15,easy,鸡翅中,,,,
 照烧鸡腿排,big_meat,鸡肉,3,30,15,easy,鸡腿肉,,,,
 香菇炖鸡,big_meat,鸡肉,3,80,20,medium,土鸡,干香菇,,,
+<<<<<<< Updated upstream
 清蒸虾,seafood,虾,4,15,5,easy,斑节虾,,,,
 清蒸鲈鱼,seafood,鱼,3,20,10,easy,鲈鱼,,,,
 家烧黄鱼,seafood,鱼,4,30,15,medium,大黄鱼,,,,
 照烧三文鱼,seafood,鱼,3,15,10,easy,三文鱼排,柠檬,,,
 炒蛏子,seafood,贝壳,4,15,10,easy,蛏子,,,,
+=======
+清蒸虾,big_meat,虾,4,15,5,easy,斑节虾,,,,
+清蒸鲈鱼,big_meat,鱼,3,20,10,easy,鲈鱼,,,,
+家烧黄鱼,big_meat,鱼,4,30,15,medium,大黄鱼,,,,
+照烧三文鱼,big_meat,鱼,3,15,10,easy,三文鱼排,柠檬,,,
+炒蛏子,big_meat,贝壳,4,15,10,easy,蛏子,,,,
+>>>>>>> Stashed changes
 烤羊排,big_meat,羊肉,4,90,20,medium,羊排,洋葱,土豆,,
 酱牛肉,big_meat,牛肉,4,120,25,medium,牛腱子,,,,
 土豆炖牛腩,big_meat,牛肉,3,100,20,medium,牛腩,土豆,胡萝卜,洋葱,
 番茄炖牛腩,big_meat,牛肉,3,100,20,medium,牛腩,番茄,土豆,洋葱,
 炒猪肝,big_meat,内脏,4,20,15,medium,猪肝,青椒,洋葱,,
 南瓜蒸排骨,big_meat,猪肉,2,50,15,easy,猪肋排,南瓜,,,
+<<<<<<< Updated upstream
 宝宝版清蒸鳕鱼,seafood,鱼,2,15,5,easy,鳕鱼块,,,,
+=======
+宝宝版清蒸鳕鱼,big_meat,鱼,2,15,5,easy,鳕鱼块,,,,
+>>>>>>> Stashed changes
 肉末烧豆腐,small_meat,豆腐,3,20,15,easy,嫩豆腐,猪肉末,,,
 韭菜炒蛋,small_meat,鸡蛋,3,10,10,easy,韭菜,鸡蛋,,,
 番茄炒蛋,small_meat,鸡蛋,4,10,10,easy,番茄,鸡蛋,,,

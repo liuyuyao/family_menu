@@ -1,6 +1,6 @@
 {
-  "name": "Family Menu",
-  "short_name": "Family Menu",
+  "name": "帆帆菜单",
+  "short_name": "帆帆菜单",
   "description": "家庭每日菜谱规划与食材管理",
   "start_url": ".",
   "display": "standalone",

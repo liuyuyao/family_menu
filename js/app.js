@@ -1,13 +1,21 @@
 const App = {
   currentPage: 'recommend',
 
+  // 渲染食材颜色圆点
+  renderColorDots(recipe) {
+    const colors = Engine.getColors(recipe.ingredients || []);
+    if (!colors.length) return '';
+    const dots = colors.map(c => `<span class="color-dot color-dot-${c}"></span>`).join('');
+    return `<span class="color-dots">${dots}</span>`;
+  },
+
   init() {
     this.migrateStorageKeys();
     this.migrateRecipes();
     this.bindNav();
     this.bindEvents();
+    this.loadGitHubSettings();
     this.renderRecipes();
-    this.renderInventory();
     this.renderHistory();
     this.renderQuickInv();
     this.generateRecommend();
@@ -15,11 +23,29 @@ const App = {
 
   migrateRecipes() {
     const seafoodNames = new Set(['清蒸虾', '清蒸鲈鱼', '家烧黄鱼', '照烧三文鱼', '炒蛏子', '宝宝版清蒸鳕鱼']);
+    const occupyMap = {
+      '羊肚菌酿肉': 25, '糖醋排骨': 20, '红烧肉加鸡蛋': 20, '红烧鸡翅': 15,
+      '照烧鸡腿排': 15, '香菇炖鸡': 20, '清蒸虾': 5, '清蒸鲈鱼': 10,
+      '家烧黄鱼': 15, '照烧三文鱼': 10, '炒蛏子': 10, '烤羊排': 20,
+      '酱牛肉': 25, '土豆炖牛腩': 20, '番茄炖牛腩': 20, '炒猪肝': 15,
+      '南瓜蒸排骨': 15, '宝宝版清蒸鳕鱼': 5, '肉末烧豆腐': 15, '韭菜炒蛋': 10,
+      '番茄炒蛋': 10, '木须肉': 20, '虾仁蒸蛋': 10, '宝宝肉饼蒸蛋': 15,
+      '胡萝卜土豆炖肉丸': 20, '番茄肉酱面': 20, '豆腐鱼肉丸': 20, '蔬菜蛋饺': 30,
+      '宝宝版宫保鸡丁': 15, '手撕包菜': 10, '芹菜香干': 10, '蒜蓉时蔬': 5,
+      '西兰花炒胡萝卜': 15, '蒸南瓜': 5, '土豆泥': 15, '玉米排骨汤': 20,
+      '萝卜牛肉汤': 20, '番茄鸡蛋汤': 10, '紫菜鸡蛋汤': 10, '冬瓜汆丸子': 20,
+      '丝瓜炒蛋': 10, '玉米浓汤': 15, '青菜肉末粥': 15, '肉末炒蘑菇': 15,
+      '口蘑炒蛋': 10, '番茄肉末意面': 20, '蛋炒饭': 10, '鲜肉馄饨': 25, '饺子': 25,
+    };
     const recipes = DataStore.getRecipes();
     let changed = false;
     recipes.forEach(r => {
       if (seafoodNames.has(r.name) && r.category === 'big_meat') {
         r.category = 'seafood';
+        changed = true;
+      }
+      if (r.occupyTime === undefined || r.occupyTime === null) {
+        r.occupyTime = occupyMap[r.name] || Math.round((r.cookTime || 30) * 0.5);
         changed = true;
       }
     });
@@ -58,7 +84,7 @@ const App = {
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.toggle('active', b.dataset.page === page));
 
     if (page === 'recipes') this.renderRecipes();
-    if (page === 'inventory') this.renderInventory();
+
     if (page === 'history') this.renderHistory();
   },
 
@@ -80,10 +106,9 @@ const App = {
     document.getElementById('btn-import-csv').addEventListener('click', () => document.getElementById('file-csv').click());
     document.getElementById('file-csv').addEventListener('change', (e) => this.handleImportCSV(e));
     document.getElementById('btn-export-json').addEventListener('click', () => this.handleExport());
+    document.getElementById('file-json-import').addEventListener('change', (e) => this.handleImportJSON(e));
 
     // 食材管理
-    document.getElementById('btn-add-inv').addEventListener('click', () => this.addInventory());
-    document.getElementById('btn-clear-inv').addEventListener('click', () => this.clearInventory());
   },
 
   // 今日推荐
@@ -91,9 +116,7 @@ const App = {
     const recipes = DataStore.getRecipes();
     const inventory = DataStore.getInventory();
     const history = DataStore.getMenus();
-    const babyMode = document.getElementById('baby-mode').checked;
-
-    const results = Engine.generateTwoMenus(recipes, inventory, history, babyMode);
+    const results = Engine.generateTwoMenus(recipes, inventory, history);
     this.renderRecommend(results, inventory);
   },
 
@@ -105,13 +128,39 @@ const App = {
     }
 
     const res = results[0];
-    const menu = res.menu;
+    let menu = res.menu;
     const shopping = Engine.generateShoppingList(menu, inventory);
+
+    // 前端强制排序：大荤→海鲜→小荤→素菜→汤→主食
+    const catOrder = ['big_meat', 'seafood', 'small_meat', 'vegetable', 'soup', 'staple'];
+    const sortedMenu = [];
+    for (const cat of catOrder) {
+      const found = menu.filter(r => r.category === cat);
+      sortedMenu.push(...found);
+    }
+    // 同步更新原始数据，保证点击按钮时索引一致
+    res.menu = sortedMenu;
+    menu = sortedMenu;
+
+    // 统计整组菜单的颜色和占用时间
+    const allColors = new Set();
+    let totalOccupyTime = 0;
+    for (const r of menu) {
+      Engine.getColors(r.ingredients || []).forEach(c => allColors.add(c));
+      totalOccupyTime += (r.occupyTime || r.cookTime || 0);
+    }
+    const colorDotsHtml = Array.from(allColors).map(c => `<span class="color-dot color-dot-${c}"></span>`).join('');
 
     let html = `<div class="menu-group">
       <div class="menu-group-header">
-        <span class="menu-group-title">今日菜单</span>
-        <span class="menu-group-score">综合得分 ${Math.round(res.score)}</span>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span class="menu-group-title">今日菜单</span>
+          <span class="color-dots">${colorDotsHtml}</span>
+        </div>
+        <div style="text-align:right;">
+          <span class="menu-group-score">综合得分 ${res.score.toFixed(1)}</span>
+          <div style="font-size:0.75rem;color:#999;margin-top:2px;">占用时间 ${totalOccupyTime}min</div>
+        </div>
       </div>`;
 
     menu.forEach((r, dishIdx) => {
@@ -123,7 +172,7 @@ const App = {
       const canSwap = !r.isRice;
       html += `<div class="menu-item">
         <div class="menu-item-info">
-          <div class="menu-item-name">${r.name}</div>
+          <div class="menu-item-name">${r.name} ${this.renderColorDots(r)}</div>
           <div class="menu-item-ing">${(r.ingredients || []).join('、')}</div>
         </div>
         <div style="display:flex;align-items:center;gap:6px;">
@@ -192,7 +241,6 @@ const App = {
     const menu = this._lastResults[menuIdx].menu;
     const recipes = DataStore.getRecipes();
     const inventory = DataStore.getInventory();
-    const babyMode = document.getElementById('baby-mode').checked;
     const today = Engine.todayStr();
 
     // 如果 dishIdx 未指定，表示"换一组"（至少换2道）
@@ -212,10 +260,21 @@ const App = {
           pool = recipes.filter(r => !usedNames.has(r.name));
         }
         if (!pool.length) continue;
-        pool.forEach(r => { r._score = Engine.scoreRecipe(r, inventory, DataStore.getMenus(), today, babyMode); });
-        pool.sort((a, b) => b._score - a._score);
-        const topPool = pool.slice(0, 5);
-        const picked = Engine.pickWeightedRandom(topPool);
+
+        // 假设剩余菜色不变，计算重复惩罚后权重 + 颜色奖励
+        const usedIngredients = new Set();
+        const usedColors = new Set();
+        menu.forEach((r, i) => {
+          if (i !== idx) {
+            (r.ingredients || []).forEach(ing => { if (ing) usedIngredients.add(ing); });
+            Engine.getColors(r.ingredients || []).forEach(c => usedColors.add(c));
+          }
+        });
+        pool.forEach(r => {
+          r._weight = Engine.calcFinalWeight(r, inventory, DataStore.getMenus(), today, usedIngredients, usedColors);
+        });
+
+        const picked = Engine.pickWeightedRandom(pool);
         usedNames.delete(menu[idx].name);
         menu[idx] = { ...picked };
         usedNames.add(picked.name);
@@ -226,22 +285,34 @@ const App = {
       return;
     }
 
-    // 单道菜替换（点击"换"按钮时）
+    // 单道菜替换（点击"换"按钮时）：假设剩余菜色不变
     const target = menu[dishIdx];
     if (!target || target.isRice) return;
 
     const oldCat = target.category;
     const usedNames = new Set(menu.map(r => r.name));
+    usedNames.delete(target.name);
     let pool = recipes.filter(r => r.category === oldCat && !usedNames.has(r.name));
     if (!pool.length) {
       pool = recipes.filter(r => !usedNames.has(r.name));
     }
     if (!pool.length) return;
 
-    pool.forEach(r => { r._score = Engine.scoreRecipe(r, inventory, DataStore.getMenus(), today, babyMode); });
-    pool.sort((a, b) => b._score - a._score);
-    const topPool = pool.slice(0, 5);
-    const picked = Engine.pickWeightedRandom(topPool);
+    // 剩余菜单的食材和颜色集合
+    const usedIngredients = new Set();
+    const usedColors = new Set();
+    menu.forEach((r, idx) => {
+      if (idx !== dishIdx) {
+        (r.ingredients || []).forEach(ing => { if (ing) usedIngredients.add(ing); });
+        Engine.getColors(r.ingredients || []).forEach(c => usedColors.add(c));
+      }
+    });
+
+    pool.forEach(r => {
+      r._weight = Engine.calcFinalWeight(r, inventory, DataStore.getMenus(), today, usedIngredients, usedColors);
+    });
+
+    const picked = Engine.pickWeightedRandom(pool);
     menu[dishIdx] = { ...picked };
     this._lastResults[menuIdx].score = Engine.scoreMenu(menu);
     this.renderRecommend(this._lastResults, inventory);
@@ -252,6 +323,10 @@ const App = {
     const search = document.getElementById('recipe-search').value.toLowerCase();
     const filter = document.getElementById('recipe-filter').value;
     let recipes = DataStore.getRecipes();
+
+    // 默认按分类排序（大荤→海鲜→小荤→素菜→汤→主食）
+    const catOrder = { big_meat: 0, seafood: 1, small_meat: 2, vegetable: 3, soup: 4, staple: 5 };
+    recipes.sort((a, b) => (catOrder[a.category] || 99) - (catOrder[b.category] || 99));
 
     if (search) {
       recipes = recipes.filter(r =>
@@ -274,8 +349,8 @@ const App = {
       const catName = { big_meat: '大荤', small_meat: '小荤', vegetable: '素菜', soup: '汤', staple: '主食', seafood: '海鲜' }[r.category];
       return `<div class="recipe-row">
         <div class="info">
-          <div class="name">${r.name} <span style="font-size:0.75rem;color:#999">(${catName})</span></div>
-          <div class="sub">${r.cookTime}min · ${(r.ingredients || []).join('、')}</div>
+          <div class="name">${r.name} ${this.renderColorDots(r)} <span style="font-size:0.75rem;color:#999">(${catName})</span></div>
+          <div class="sub">${r.cookTime}min（占用${r.occupyTime || r.cookTime}min） · ${(r.ingredients || []).join('、')}</div>
         </div>
         <div style="display:flex;gap:6px;align-items:center;">
           <div class="pref" data-name="${r.name}">${stars.split('').map((s, i) =>
@@ -311,55 +386,23 @@ const App = {
       container.innerHTML = '<div class="empty-state">还没有历史记录</div>';
       return;
     }
-    container.innerHTML = menus.slice(0, 30).map(m => `
-      <div class="card">
-        <div class="history-date">${m.date}</div>
+    container.innerHTML = menus.slice(0, 30).map((m, idx) => `
+      <div class="card" style="position:relative;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div class="history-date">${m.date}</div>
+          <button class="btn-small" onclick="App.deleteHistory(${idx})" style="padding:2px 8px;font-size:0.7rem;background:#FFEBEE;color:#C62828;border-color:#EF9A9A;">删除</button>
+        </div>
         <div class="history-recipes">${m.recipes.join('、')}</div>
       </div>
     `).join('');
   },
 
-  // 食材管理
-  renderInventory() {
-    const inv = DataStore.getInventory();
-    const container = document.getElementById('inventory-list');
-    if (!inv.length) {
-      container.innerHTML = '<div class="empty-state">还没有库存食材</div>';
-      return;
-    }
-    container.innerHTML = inv.map((item, idx) => `
-      <div class="inv-item">
-        <span>${item.name} ${item.quantity}${item.unit}</span>
-        <button onclick="App.removeInventory(${idx})">删除</button>
-      </div>
-    `).join('');
-  },
-
-  addInventory() {
-    const name = document.getElementById('inv-name').value.trim();
-    const qty = document.getElementById('inv-qty').value.trim();
-    const unit = document.getElementById('inv-unit').value.trim();
-    if (!name) return;
-    const inv = DataStore.getInventory();
-    inv.push({ name, quantity: qty || '', unit: unit || '', addedDate: Engine.todayStr() });
-    DataStore.saveInventory(inv);
-    document.getElementById('inv-name').value = '';
-    document.getElementById('inv-qty').value = '';
-    document.getElementById('inv-unit').value = '';
-    this.renderInventory();
-  },
-
-  removeInventory(idx) {
-    const inv = DataStore.getInventory();
-    inv.splice(idx, 1);
-    DataStore.saveInventory(inv);
-    this.renderInventory();
-  },
-
-  clearInventory() {
-    if (!confirm('确定清空所有库存食材？')) return;
-    DataStore.saveInventory([]);
-    this.renderInventory();
+  deleteHistory(idx) {
+    if (!confirm('确定删除这条历史记录吗？')) return;
+    const menus = DataStore.getMenus();
+    menus.splice(idx, 1);
+    DataStore.saveMenus(menus);
+    this.renderHistory();
   },
 
   // 导入导出
@@ -392,9 +435,28 @@ const App = {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'FamilyMenu_backup_' + Engine.todayStr() + '.json';
+    a.download = '帆帆菜单备份_' + Engine.todayStr() + '.json';
     a.click();
     URL.revokeObjectURL(url);
+  },
+
+  handleImportJSON(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        DataStore.importAll(ev.target.result);
+        alert('导入成功');
+        this.renderRecipes();
+        this.renderInventory();
+        this.renderHistory();
+      } catch (err) {
+        alert('导入失败: ' + err.message);
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
   },
 
   openEditor(name) {
@@ -413,6 +475,7 @@ const App = {
       document.getElementById('edit-main').value = r.mainIngredient || '';
       document.getElementById('edit-pref').value = r.preference;
       document.getElementById('edit-time').value = r.cookTime;
+      document.getElementById('edit-occupy').value = r.occupyTime || r.cookTime;
       document.getElementById('edit-diff').value = r.difficulty || 'easy';
       const ings = r.ingredients || [];
       for (let i = 0; i < 5; i++) {
@@ -426,6 +489,7 @@ const App = {
       document.getElementById('edit-main').value = '';
       document.getElementById('edit-pref').value = '3';
       document.getElementById('edit-time').value = '30';
+      document.getElementById('edit-occupy').value = '15';
       document.getElementById('edit-diff').value = 'easy';
       for (let i = 1; i <= 5; i++) {
         document.getElementById('edit-ing' + i).value = '';
@@ -444,6 +508,7 @@ const App = {
     const mainIngredient = document.getElementById('edit-main').value.trim();
     const preference = parseInt(document.getElementById('edit-pref').value) || 3;
     const cookTime = parseInt(document.getElementById('edit-time').value) || 30;
+    const occupyTime = parseInt(document.getElementById('edit-occupy').value) || cookTime;
     const difficulty = document.getElementById('edit-diff').value;
     const ingredients = [];
     for (let i = 1; i <= 5; i++) {
@@ -455,13 +520,13 @@ const App = {
     if (oldName) {
       const idx = recipes.findIndex(x => x.name === oldName);
       if (idx >= 0) {
-        recipes[idx] = { ...recipes[idx], name, category, mainIngredient, preference, cookTime, difficulty, ingredients };
+        recipes[idx] = { ...recipes[idx], name, category, mainIngredient, preference, cookTime, occupyTime, difficulty, ingredients };
       }
     } else {
       if (recipes.some(x => x.name === name)) {
         alert('该菜名已存在'); return;
       }
-      recipes.push({ name, category, mainIngredient, preference, cookTime, difficulty, ingredients, lastEaten: null });
+      recipes.push({ name, category, mainIngredient, preference, cookTime, occupyTime, difficulty, ingredients, lastEaten: null });
     }
     DataStore.saveRecipes(recipes);
     this.closeEditor();
@@ -524,7 +589,6 @@ const App = {
     const menu = this._lastResults[menuIdx].menu;
     const recipes = DataStore.getRecipes();
     const inventory = DataStore.getInventory();
-    const babyMode = document.getElementById('baby-mode').checked;
     const today = Engine.todayStr();
 
     const usedNames = new Set(menu.map(r => r.name));
@@ -536,50 +600,76 @@ const App = {
     }
     if (!pool.length) return;
 
-    pool.forEach(r => { r._score = Engine.scoreRecipe(r, inventory, DataStore.getMenus(), today, babyMode); });
-    pool.sort((a, b) => b._score - a._score);
-    const topPool = pool.slice(0, 5);
-    const picked = Engine.pickWeightedRandom(topPool);
+    // 剩余菜单的食材和颜色集合
+    const usedIngredients = new Set();
+    const usedColors = new Set();
+    menu.forEach((r, idx) => {
+      if (idx !== dishIdx) {
+        (r.ingredients || []).forEach(ing => { if (ing) usedIngredients.add(ing); });
+        Engine.getColors(r.ingredients || []).forEach(c => usedColors.add(c));
+      }
+    });
+
+    pool.forEach(r => {
+      r._weight = Engine.calcFinalWeight(r, inventory, DataStore.getMenus(), today, usedIngredients, usedColors);
+    });
+
+    const picked = Engine.pickWeightedRandom(pool);
     menu[dishIdx] = { ...picked };
     this._lastResults[menuIdx].score = Engine.scoreMenu(menu);
     this.renderRecommend(this._lastResults, inventory);
   },
 
   showDishPicker(menuIdx, dishIdx) {
-    if (!this._lastResults || !this._lastResults[menuIdx]) return;
-    const menu = this._lastResults[menuIdx].menu;
-    const recipes = DataStore.getRecipes();
-    const inventory = DataStore.getInventory();
-    const babyMode = document.getElementById('baby-mode').checked;
-    const today = Engine.todayStr();
-    const target = menu[dishIdx];
+    try {
+      if (!this._lastResults || !this._lastResults[menuIdx]) { alert('请先生成菜单'); return; }
+      const menu = this._lastResults[menuIdx].menu;
+      const recipes = DataStore.getRecipes();
+      const inventory = DataStore.getInventory();
+      const today = Engine.todayStr();
+      const target = menu[dishIdx];
+      if (!target) { alert('菜单项不存在'); return; }
 
-    const usedNames = new Set(menu.map(r => r.name));
-    usedNames.delete(target.name);
+      const usedNames = new Set(menu.map(r => r.name));
+      usedNames.delete(target.name);
 
-    let pool = recipes.filter(r => r.category === target.category && !usedNames.has(r.name));
-    if (!pool.length) {
-      pool = recipes.filter(r => !usedNames.has(r.name));
+      let pool = recipes.filter(r => r.category === target.category && !usedNames.has(r.name));
+      if (!pool.length) {
+        pool = recipes.filter(r => !usedNames.has(r.name));
+      }
+      if (!pool.length) { alert('没有可选菜谱'); return; }
+
+      const usedIngredients = new Set();
+      const usedColors = new Set();
+      menu.forEach((r, idx) => {
+        if (idx !== dishIdx) {
+          (r.ingredients || []).forEach(ing => { if (ing) usedIngredients.add(ing); });
+          Engine.getColors(r.ingredients || []).forEach(c => usedColors.add(c));
+        }
+      });
+
+      pool.forEach(r => {
+        r._weight = Engine.calcFinalWeight(r, inventory, DataStore.getMenus(), today, usedIngredients, usedColors);
+      });
+      pool.sort((a, b) => b._weight - a._weight);
+
+      const picker = document.getElementById('dish-picker-' + menuIdx + '-' + dishIdx);
+      if (!picker) { alert('弹窗元素未找到'); return; }
+
+      let html = '<div style="display:flex;gap:6px;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid #F5F0EB;">';
+      pool.slice(0, 10).forEach(r => {
+        html += `<button class="btn-small" onclick="App.pickDish(${menuIdx}, ${dishIdx}, '${r.name.replace(/'/g, "\\'")}')" style="padding:4px 8px;font-size:0.75rem;">${r.name} (${r._weight.toFixed(1)})</button>`;
+      });
+      html += '</div>';
+      picker.innerHTML = html;
+
+      const wasVisible = picker.style.display === 'block';
+      document.querySelectorAll('.dish-picker').forEach(p => p.style.display = 'none');
+      document.querySelectorAll('.cat-picker').forEach(p => p.style.display = 'none');
+      picker.style.display = wasVisible ? 'none' : 'block';
+    } catch (e) {
+      alert('选菜出错: ' + e.message);
     }
-    if (!pool.length) return;
-
-    pool.forEach(r => { r._score = Engine.scoreRecipe(r, inventory, DataStore.getMenus(), today, babyMode); });
-    pool.sort((a, b) => b._score - a._score);
-
-    const picker = document.getElementById('dish-picker-' + menuIdx + '-' + dishIdx);
-    if (!picker) return;
-
-    let html = '<div style="display:flex;gap:6px;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid #F5F0EB;">';
-    pool.slice(0, 10).forEach(r => {
-      html += `<button class="btn-small" onclick="App.pickDish(${menuIdx}, ${dishIdx}, '${r.name.replace(/'/g, "\\'")}')" style="padding:4px 8px;font-size:0.75rem;">${r.name} (${Math.round(r._score)})</button>`;
-    });
-    html += '</div>';
-    picker.innerHTML = html;
-
-    const wasVisible = picker.style.display === 'block';
-    document.querySelectorAll('.dish-picker').forEach(p => p.style.display = 'none');
-    document.querySelectorAll('.cat-picker').forEach(p => p.style.display = 'none');
-    picker.style.display = wasVisible ? 'none' : 'block';
   },
 
   pickDish(menuIdx, dishIdx, dishName) {
@@ -591,6 +681,119 @@ const App = {
     menu[dishIdx] = { ...picked };
     this._lastResults[menuIdx].score = Engine.scoreMenu(menu);
     this.renderRecommend(this._lastResults, DataStore.getInventory());
+  },
+
+  // GitHub 设置
+  loadGitHubSettings() {
+    const s = DataStore.getSettings();
+    document.getElementById('gh-token').value = s.ghToken || '';
+    document.getElementById('gh-repo').value = s.ghRepo || '';
+    document.getElementById('gh-branch').value = s.ghBranch || 'main';
+    document.getElementById('gh-path').value = s.ghPath || 'data/recipes.csv';
+  },
+
+  saveGitHubSettings() {
+    const s = DataStore.getSettings();
+    s.ghToken = document.getElementById('gh-token').value.trim();
+    s.ghRepo = document.getElementById('gh-repo').value.trim();
+    s.ghBranch = document.getElementById('gh-branch').value.trim() || 'main';
+    s.ghPath = document.getElementById('gh-path').value.trim() || 'data/recipes.csv';
+    DataStore.saveSettings(s);
+    this.setStatus('配置已保存');
+  },
+
+  setStatus(msg) {
+    const el = document.getElementById('gh-status');
+    if (el) { el.textContent = msg; setTimeout(() => el.textContent = '', 3000); }
+  },
+
+  async syncFromGitHub() {
+    const s = DataStore.getSettings();
+    if (!s.ghToken || !s.ghRepo) { alert('请先填写 GitHub Token 和仓库名'); return; }
+    this.setStatus('正在从仓库加载...');
+    try {
+      const [owner, repo] = s.ghRepo.split('/');
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${s.ghPath}?ref=${s.ghBranch}`;
+      const res = await fetch(url, { headers: { Authorization: `token ${s.ghToken}`, Accept: 'application/vnd.github.v3+json' } });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      const csv = atob(data.content.replace(/\n/g, ''));
+      const recipes = DataStore.parseCSV(csv);
+      DataStore.saveRecipes(recipes);
+      this.renderRecipes();
+      this.setStatus('已从仓库加载 ' + recipes.length + ' 道菜谱');
+    } catch (e) {
+      this.setStatus('加载失败: ' + e.message);
+    }
+  },
+
+  async syncToGitHub() {
+    const s = DataStore.getSettings();
+    if (!s.ghToken || !s.ghRepo) { alert('请先填写 GitHub Token 和仓库名'); return; }
+    this.setStatus('正在保存到仓库...');
+    try {
+      const [owner, repo] = s.ghRepo.split('/');
+      const recipes = DataStore.getRecipes();
+      const csv = this.recipesToCSV(recipes);
+      const content = btoa(unescape(encodeURIComponent(csv)));
+
+      // 获取现有文件的 sha
+      const getUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${s.ghPath}?ref=${s.ghBranch}`;
+      const getRes = await fetch(getUrl, { headers: { Authorization: `token ${s.ghToken}`, Accept: 'application/vnd.github.v3+json' } });
+      let sha = '';
+      if (getRes.ok) {
+        const fileData = await getRes.json();
+        sha = fileData.sha;
+      }
+
+      // 提交更新
+      const putUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${s.ghPath}`;
+      const body = { message: '更新菜谱', content, branch: s.ghBranch };
+      if (sha) body.sha = sha;
+      const putRes = await fetch(putUrl, {
+        method: 'PUT',
+        headers: { Authorization: `token ${s.ghToken}`, Accept: 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      if (!putRes.ok) throw new Error('HTTP ' + putRes.status);
+      this.setStatus('已成功保存到仓库');
+    } catch (e) {
+      this.setStatus('保存失败: ' + e.message);
+    }
+  },
+
+  recipesToCSV(recipes) {
+    const headers = ['菜名', '分类', '主要食材', '喜爱', '用时(分钟)', '占用时间(分钟)', '难度', '食材1', '食材2', '食材3', '食材4', '食材5'];
+    const lines = [headers.join(',')];
+    for (const r of recipes) {
+      const ings = r.ingredients || [];
+      const row = [
+        r.name, r.category, r.mainIngredient || '', r.preference || 3,
+        r.cookTime || 30, r.occupyTime || (r.cookTime || 30),
+        r.difficulty || 'easy',
+        ings[0] || '', ings[1] || '', ings[2] || '', ings[3] || '', ings[4] || ''
+      ];
+      lines.push(row.join(','));
+    }
+    return lines.join('\n') + '\n';
+  },
+
+  exportCSV() {
+    const csv = this.recipesToCSV(DataStore.getRecipes());
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'recipes.csv';
+    link.click();
+  },
+
+  exportJSON() {
+    const json = DataStore.exportAll();
+    const blob = new Blob([json], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'fanfan_backup_' + new Date().toISOString().slice(0, 10) + '.json';
+    link.click();
   }
 };
 
